@@ -141,7 +141,7 @@
 
   {{- range .Params.speakers -}}
     {{- $.Scratch.Set "speakername" . -}}
-    {{- $p := $.Site.GetPage (printf "events/%s/speakers/%s" $e.name ($.Scratch.Get "speakername")) -}}
+    {{- with $.Site.GetPage "page" (printf "events/%s/speakers/%s" $e.name ($.Scratch.Get "speakername")) -}}
     {{- if $p -}}
     {{- with $p -}}
        {{- if isset .Params "image" -}}
